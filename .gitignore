@@ -41,3 +41,23 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.exe
+Debug/glut32.dll
+*.ilk
+*.pdb
+*.sdf
+RayTracer.sublime-workspace
+*.suo
+RayTracer.opensdf
+*.ipch
+*.tlog
+*.obj
+*.manifest
+RayTracer/Debug/RayTracer.exe.embed.manifest.res
+*.lastbuildstate
+RayTracer/RayTracer.vcxproj.filters
+*.cache
+*.idb
+*.user
+RayTracer/Debug/RayTracer_manifest.rc
+RayTracer/Debug/RayTracer.log
