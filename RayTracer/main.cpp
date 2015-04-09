@@ -2,15 +2,27 @@
  * Description : Ray Tracing program
  */
 
+//------------------------------------------------------------------------------
+// Windows
+//------------------------------------------------------------------------------
+//#include <iostream>
+//#include <gl\glut.h>
+//using namespace std;
+
+//------------------------------------------------------------------------------
+// Mac
+//------------------------------------------------------------------------------
 #include <iostream>
-#include <gl\glut.h>
+#include <OpenGL/glu.h>
+#include <OpenGL/OpenGL.h>
+#include <GLUT/GLUT.h>
 using namespace std;
 
 //------------------------------------------------------------------------------
 // Global constant values
 //------------------------------------------------------------------------------
-const int imgWidth = 1366;
-const int imgHeight = 768;
+const int imgWidth = 800;
+const int imgHeight = 600;
 const int imgSize = imgWidth * imgHeight * 3; // See explanation below
 
 //------------------------------------------------------------------------------
@@ -42,9 +54,9 @@ RGB* imgPixels = new RGB[imgWidth * imgHeight];
 void initializeBuffer() {
   // Reset all the pixel colors in our buffer to be maroon.
   for (int i = 0; i < imgWidth * imgHeight; i++) {
-      imgPixels[i].r = 0.5f;
-      imgPixels[i].g = 0.0f;
-      imgPixels[i].b = 0.0f;
+    imgPixels[i].r = 0.5f;
+    imgPixels[i].g = 0.0f;
+    imgPixels[i].b = 0.0f;
   }
 }
 

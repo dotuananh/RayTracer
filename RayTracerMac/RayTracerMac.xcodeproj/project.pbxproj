@@ -1,0 +1,262 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18FB0FBE1AD71A4600338040 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18FB0FBD1AD71A4600338040 /* main.cpp */; };
+		18FB0FC01AD71AE100338040 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB0FBF1AD71AE100338040 /* OpenGL.framework */; };
+		18FB0FC21AD71AEA00338040 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FB0FC11AD71AEA00338040 /* GLUT.framework */; };
+		18FB0FC61AD71D6500338040 /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18FB0FC41AD71D6500338040 /* Point.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18FB0FB11AD719C600338040 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		18FB0FB31AD719C600338040 /* RayTracerMac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RayTracerMac; sourceTree = BUILT_PRODUCTS_DIR; };
+		18FB0FBD1AD71A4600338040 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../RayTracer/main.cpp; sourceTree = "<group>"; };
+		18FB0FBF1AD71AE100338040 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		18FB0FC11AD71AEA00338040 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		18FB0FC41AD71D6500338040 /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
+		18FB0FC51AD71D6500338040 /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18FB0FB01AD719C600338040 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18FB0FC21AD71AEA00338040 /* GLUT.framework in Frameworks */,
+				18FB0FC01AD71AE100338040 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18FB0FAA1AD719C600338040 = {
+			isa = PBXGroup;
+			children = (
+				18FB0FC31AD71D6500338040 /* MathLib */,
+				18FB0FC11AD71AEA00338040 /* GLUT.framework */,
+				18FB0FBF1AD71AE100338040 /* OpenGL.framework */,
+				18FB0FB51AD719C600338040 /* RayTracerMac */,
+				18FB0FB41AD719C600338040 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18FB0FB41AD719C600338040 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18FB0FB31AD719C600338040 /* RayTracerMac */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18FB0FB51AD719C600338040 /* RayTracerMac */ = {
+			isa = PBXGroup;
+			children = (
+				18FB0FBD1AD71A4600338040 /* main.cpp */,
+			);
+			path = RayTracerMac;
+			sourceTree = "<group>";
+		};
+		18FB0FC31AD71D6500338040 /* MathLib */ = {
+			isa = PBXGroup;
+			children = (
+				18FB0FC41AD71D6500338040 /* Point.cpp */,
+				18FB0FC51AD71D6500338040 /* Point.h */,
+			);
+			name = MathLib;
+			path = ../RayTracer/MathLib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18FB0FB21AD719C600338040 /* RayTracerMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18FB0FBA1AD719C600338040 /* Build configuration list for PBXNativeTarget "RayTracerMac" */;
+			buildPhases = (
+				18FB0FAF1AD719C600338040 /* Sources */,
+				18FB0FB01AD719C600338040 /* Frameworks */,
+				18FB0FB11AD719C600338040 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RayTracerMac;
+			productName = RayTracerMac;
+			productReference = 18FB0FB31AD719C600338040 /* RayTracerMac */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18FB0FAB1AD719C600338040 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Anh Tuan Do";
+				TargetAttributes = {
+					18FB0FB21AD719C600338040 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 18FB0FAE1AD719C600338040 /* Build configuration list for PBXProject "RayTracerMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18FB0FAA1AD719C600338040;
+			productRefGroup = 18FB0FB41AD719C600338040 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18FB0FB21AD719C600338040 /* RayTracerMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18FB0FAF1AD719C600338040 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18FB0FC61AD71D6500338040 /* Point.cpp in Sources */,
+				18FB0FBE1AD71A4600338040 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		18FB0FB81AD719C600338040 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		18FB0FB91AD719C600338040 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		18FB0FBB1AD719C600338040 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18FB0FBC1AD719C600338040 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18FB0FAE1AD719C600338040 /* Build configuration list for PBXProject "RayTracerMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18FB0FB81AD719C600338040 /* Debug */,
+				18FB0FB91AD719C600338040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18FB0FBA1AD719C600338040 /* Build configuration list for PBXNativeTarget "RayTracerMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18FB0FBB1AD719C600338040 /* Debug */,
+				18FB0FBC1AD719C600338040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18FB0FAB1AD719C600338040 /* Project object */;
+}
