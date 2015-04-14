@@ -7,6 +7,7 @@
 
 #include "MathLib\Point.h"
 #include "MathLib\Vector.h"
+#include "MathLib\Ray.h"
 #include <iostream>
 using namespace std;
 
@@ -84,11 +85,43 @@ void testVectorClass() {
 }
 
 //------------------------------------------------------------------------------
+// Test the interaction between point and vector class
+//------------------------------------------------------------------------------
+void testPointAndVector() {
+  Point p1(0, 0, 0);
+  Point p2(0, 5, 0);
+  Vector v = p2 - p1;
+  v.print();
+  v = p1 - p2;
+  v.print();
+  Point p3 = p1 + v;
+  p3.print();
+  p3 = p3 - v;
+  p3.print();
+}
+
+//------------------------------------------------------------------------------
+// Test the ray class
+//------------------------------------------------------------------------------
+void testRayClass() {
+  Ray r1; // Default constructor
+  Ray r2(Point(0, 0, 0), Vector(1, 0, 0)); // Constructor with o and d
+  Ray r3(r2);// Copy constructor
+  Ray r4 = r2; // Assignment operator
+  r1.print();
+  r2.print();
+  r3.print();
+  r4.print();
+}
+
+//------------------------------------------------------------------------------
 // Entry point of the program
 //------------------------------------------------------------------------------
 int main (int argc, char* argv[]) {
   // testPointClass();
-  testVectorClass();
+  // testVectorClass();
+  // testPointAndVector();
+  testRayClass();
 
   return 0;
 }

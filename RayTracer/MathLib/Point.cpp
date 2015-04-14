@@ -103,3 +103,24 @@ double Point::distance(const Point& point) const {
 void Point::print() {
   std::cout << "Point x = " << x << ", y = " << y << ", z = " << z << "\n";
 }
+
+//------------------------------------------------------------------------------
+// Create a vector from 2 points
+//------------------------------------------------------------------------------
+Vector Point::operator-(const Point& point) const {
+  return (Vector(x - point.x, y - point.y, z - point.z));
+}
+
+//------------------------------------------------------------------------------
+// Addition a vector to a point to create a new point
+//------------------------------------------------------------------------------
+Point Point::operator+(const Vector& vector) const {
+  return (Point(x + vector.x, y + vector.y, z + vector.z));
+}
+
+//------------------------------------------------------------------------------
+// Substraction a vector to a point to create a new point
+//------------------------------------------------------------------------------
+Point Point::operator-(const Vector& vector) const {
+  return (Point(x - vector.x, y - vector.y, z - vector.z));
+}

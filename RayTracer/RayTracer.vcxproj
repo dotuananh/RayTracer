@@ -75,12 +75,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MathLib\Normal.cpp" />
     <ClCompile Include="MathLib\Point.cpp" />
+    <ClCompile Include="MathLib\Ray.cpp" />
     <ClCompile Include="MathLib\Vector.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MathLib\Normal.h" />
     <ClInclude Include="MathLib\Point.h" />
+    <ClInclude Include="MathLib\Ray.h" />
     <ClInclude Include="MathLib\Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

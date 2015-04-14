@@ -7,6 +7,8 @@
 #ifndef __POINT__
 #define __POINT__
 
+#include "Vector.h"
+
 class Point {
   public:
     // Default constructor, all values are set to 0
@@ -55,14 +57,20 @@ class Point {
     // Use with caution
     double distance(const Point& point) const;
 
-    // DEBUG
+    // Debug
     void print();
 
-    // TODO: Implement minus 2 points to create a vector
-    // TODO: Implement a point + vector = point
-    // TODO: Implement a point - vector = point
+    // Create a vector from 2 points
+    // Point - Point = new Vector
+    Vector operator- (const Point& point) const;
 
-  private:
+    // Move a point along a vector
+    // Point + Vector = new Point
+    Point operator+ (const Vector& vector) const;
+
+    // Point - Vector = new Point
+    Point operator- (const Vector& vector) const;
+
     // Use double so that we have more precise calculation
     double x, y, z;
 };

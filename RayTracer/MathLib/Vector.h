@@ -82,7 +82,6 @@ class Vector {
     // Debug
     void print();
 
-  private:
     // Use double instead of float to have a better accuracy.
     double x, y, z;
 };
