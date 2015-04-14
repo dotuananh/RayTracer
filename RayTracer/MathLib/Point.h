@@ -17,7 +17,7 @@ class Point {
     Point(const double xValue, const double yValue);
 
     // Constructor for a 3D point, same as 2D
-    Point(double xValue, double yValue, double zValue);
+    Point(const double xValue, const double yValue, const double zValue);
 
     // Copy constructor
     // Use const means we won't change the data
@@ -30,10 +30,40 @@ class Point {
     ~Point();
 
     // Assignment Operator
+    // Note that for assignment operator, we return Point& instead of Point
+    // The reason based on the book is because this will prevent memory leak
+    // Need to read more about this.
     Point& operator= (const Point& point);
+
+    // Scala multiplication (scale the point)
+    // Something like a * P = (a * Px, a * Py, a * Pz)
+    Point operator* (const double a);
+
+    // Unary minus
+    // - (x, y, z) = (-x, -y, -z)
+    Point operator- (void) const;
+
+    // Double distance between 2 points
+    // We have const at the end of the function to say that
+    // we won't make any changes to the member variables
+    // of this class (x, y, and z)
+    double squareDistance(const Point& point) const;
+
+    // Distance between 2 points
+    // This uses square root, which is a big hit in speed
+    // Use with caution
+    double distance(const Point& point) const;
+
+    // DEBUG
+    void print();
+
+    // TODO: Implement minus 2 points to create a vector
+    // TODO: Implement a point + vector = point
+    // TODO: Implement a point - vector = point
 
   private:
     // Use double so that we have more precise calculation
     double x, y, z;
 };
+
 #endif

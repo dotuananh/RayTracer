@@ -1,22 +1,25 @@
 /**
  * Description : Ray Tracing program
+ * This is based on the code in "Ray Tracing from ground up" book
  */
 
 //------------------------------------------------------------------------------
 // Windows
 //------------------------------------------------------------------------------
-//#include <iostream>
-//#include <gl\glut.h>
-//using namespace std;
+#include <iostream>
+#include <gl\glut.h>
+using namespace std;
 
 //------------------------------------------------------------------------------
 // Mac
 //------------------------------------------------------------------------------
-#include <iostream>
-#include <OpenGL/glu.h>
-#include <OpenGL/OpenGL.h>
-#include <GLUT/GLUT.h>
-using namespace std;
+//#include <iostream>
+//#include <OpenGL/glu.h>
+//#include <OpenGL/OpenGL.h>
+//#include <GLUT/GLUT.h>
+//using namespace std;
+
+#include "MathLib\Point.h"
 
 //------------------------------------------------------------------------------
 // Global constant values
@@ -71,20 +74,49 @@ void displayCallback() {
 }
 
 //------------------------------------------------------------------------------
+// Test Point class
+//------------------------------------------------------------------------------
+void testPointClass() {
+  Point p1; // Using default constructor
+  Point p2 (1, 2); // 2D point constructor
+  Point p3 (2, 3, 2); // 3D point constructor
+  Point p4 (p3); // Copy constructor
+  p1.print();
+  p2.print();
+  p3.print();
+  p4.print();
+  Point p5 = p4;
+  p5.print();
+  p5 = p5 * 3;
+  p5.print();
+  Point p6 = -p5;
+  p6.print();
+  Point p7(0, 0, 0);
+  Point p8(0, 3, 0);
+  cout << p7.squareDistance(p8) << endl;
+  cout << p7.distance(p8) << endl;
+}
+
+//------------------------------------------------------------------------------
 // Entry point of the program
 //------------------------------------------------------------------------------
 int main (int argc, char* argv[]) {
-  glutInit(&argc, argv);
-  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-  glutInitWindowSize(imgWidth, imgHeight);
-  glutInitWindowPosition(100, 100);
-  glutCreateWindow("Ray Tracing");
-  glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 1.0f);
-  initializeBuffer();
-  glutDisplayFunc(displayCallback);
-  glutMainLoop();
+  // glutInit(&argc, argv);
+  // glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+  // glutInitWindowSize(imgWidth, imgHeight);
+  // glutInitWindowPosition(100, 100);
+  // glutCreateWindow("Ray Tracing");
+  // glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+  // glMatrixMode(GL_PROJECTION);
+  // glLoadIdentity();
+  // glOrtho(0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 1.0f);
+  // initializeBuffer();
+  // glutDisplayFunc(displayCallback);
+  // glutMainLoop();
+
+  // Test zone - Begin
+  testPointClass();
+  // Test zone - End
+
   return 0;
 }
