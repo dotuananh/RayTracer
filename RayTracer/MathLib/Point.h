@@ -1,6 +1,7 @@
 /**
  * Description: Header file for the Point class
  * This class represents both 2D and 3D points
+ * Read chapter 2.7 for information about Points.
  */
 
 #ifndef __POINT__
@@ -47,7 +48,7 @@ class Point {
     // We have const at the end of the function to say that
     // we won't make any changes to the member variables
     // of this class (x, y, and z)
-    double squareDistance(const Point& point) const;
+    double squaredDistance(const Point& point) const;
 
     // Distance between 2 points
     // This uses square root, which is a big hit in speed

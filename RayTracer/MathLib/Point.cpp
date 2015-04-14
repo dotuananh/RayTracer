@@ -78,7 +78,7 @@ Point Point::operator- (void) const {
 //------------------------------------------------------------------------------
 // Square distance between 2 points
 //------------------------------------------------------------------------------
-double Point::squareDistance(const Point& point) const {
+double Point::squaredDistance(const Point& point) const {
   return (
     (x - point.x) * (x - point.x) +
     (y - point.y) * (y - point.y) +
