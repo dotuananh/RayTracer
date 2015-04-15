@@ -59,6 +59,9 @@ class Normal {
     // Normalize
     void normalize();
 
+    // Debug
+    void print();
+
     // Use double to be more accurate than float
     double x, y, z;
 };

@@ -8,6 +8,8 @@
 #include "MathLib\Point.h"
 #include "MathLib\Vector.h"
 #include "MathLib\Ray.h"
+#include "MathLib\Normal.h"
+#include "Scene\RGBColor.h"
 #include <iostream>
 using namespace std;
 
@@ -115,13 +117,43 @@ void testRayClass() {
 }
 
 //------------------------------------------------------------------------------
+// Test the Normal class
+//------------------------------------------------------------------------------
+void testNormalClass() {
+  Normal n1; // Default constructor
+  Normal n2(0, 0, 1); // Constructor with 3 parameters
+  Normal n3 = n2; // Assignment operator
+  n1.print();
+  n2.print();
+  n3.print();
+}
+
+//------------------------------------------------------------------------------
+// Test the Color class
+//------------------------------------------------------------------------------
+void testColorClass() {
+  RGBColor c1; // Default constructor
+  RGBColor c2(0.8); // Constructor with 1 value
+  RGBColor c3(0.2, 0.4, 0.5); // Constructor with 3 values
+  RGBColor c4(c3); // Copy constructor
+  RGBColor c5 = c4; // Assignment operator
+  c1.print();
+  c2.print();
+  c3.print();
+  c4.print();
+  c5.print();
+}
+
+//------------------------------------------------------------------------------
 // Entry point of the program
 //------------------------------------------------------------------------------
 int main (int argc, char* argv[]) {
   // testPointClass();
   // testVectorClass();
   // testPointAndVector();
-  testRayClass();
+  // testRayClass();
+  // testNormalClass();
+  testColorClass();
 
   return 0;
 }
