@@ -86,4 +86,14 @@ class Vector {
     double x, y, z;
 };
 
+//------------------------------------------------------------------------------
+// Multiple a number with a vector (number * vector)
+// On the above declaration, we have a vector * number
+// In mathematics, they are the same thing but in C++ we need
+// 2 separate functions
+//------------------------------------------------------------------------------
+inline Vector operator* (const double a, const Vector& v) {
+    return (Vector(a * v.x, a * v.y, a * v.z));
+}
+
 #endif

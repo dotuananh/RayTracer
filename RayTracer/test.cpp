@@ -10,6 +10,7 @@
 #include "MathLib\Ray.h"
 #include "MathLib\Normal.h"
 #include "Scene\RGBColor.h"
+#include "Objects\Sphere.h"
 #include <iostream>
 using namespace std;
 
@@ -133,8 +134,8 @@ void testNormalClass() {
 //------------------------------------------------------------------------------
 void testColorClass() {
   RGBColor c1; // Default constructor
-  RGBColor c2(0.8); // Constructor with 1 value
-  RGBColor c3(0.2, 0.4, 0.5); // Constructor with 3 values
+  RGBColor c2(0.8f); // Constructor with 1 value
+  RGBColor c3(0.2f, 0.4f, 0.5f); // Constructor with 3 values
   RGBColor c4(c3); // Copy constructor
   RGBColor c5 = c4; // Assignment operator
   c1.print();
@@ -142,6 +143,24 @@ void testColorClass() {
   c3.print();
   c4.print();
   c5.print();
+}
+
+//------------------------------------------------------------------------------
+// Test Sphere and ray intersection
+// This is an important test
+// The test scene includes
+//  1. A sphere at (0, 0, -5) and radius is 3
+//  2. A ray with origin at (0, 0, 1) and direction vector is (0, 0, -1)
+// The ray is supposed to hit the sphere at (0, 0, -2) and (0, 0, -8)
+//------------------------------------------------------------------------------
+void testRaySphere() {
+  Sphere sphere(Point(0, 0, -5), 3.0);
+  Ray ray(Point(0, 0, 1), Vector(0, 0, -1));
+  double t;
+  ShadeRec shadeRec;
+  sphere.isHit(ray, t, shadeRec);
+  cout << "t = " << t << "\n";
+  shadeRec.print();
 }
 
 //------------------------------------------------------------------------------
@@ -153,7 +172,8 @@ int main (int argc, char* argv[]) {
   // testPointAndVector();
   // testRayClass();
   // testNormalClass();
-  testColorClass();
+  // testColorClass();
+  testRaySphere();
 
   return 0;
 }

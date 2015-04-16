@@ -82,7 +82,7 @@
     <ClCompile Include="MathLib\Point.cpp" />
     <ClCompile Include="MathLib\Ray.cpp" />
     <ClCompile Include="MathLib\Vector.cpp" />
-    <ClCompile Include="Objects\GeometryObject.cpp" />
+    <ClCompile Include="Objects\GeometricObject.cpp" />
     <ClCompile Include="Objects\Sphere.cpp" />
     <ClCompile Include="Scene\RGBColor.cpp" />
     <ClCompile Include="Scene\ViewPlane.cpp" />
@@ -90,6 +90,7 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Common.h" />
     <ClInclude Include="Engine\ShadeRec.h" />
     <ClInclude Include="Engine\SingleSphereTracer.h" />
     <ClInclude Include="Engine\Tracer.h" />
@@ -97,7 +98,7 @@
     <ClInclude Include="MathLib\Point.h" />
     <ClInclude Include="MathLib\Ray.h" />
     <ClInclude Include="MathLib\Vector.h" />
-    <ClInclude Include="Objects\GeometryObject.h" />
+    <ClInclude Include="Objects\GeometricObject.h" />
     <ClInclude Include="Objects\Sphere.h" />
     <ClInclude Include="Scene\RGBColor.h" />
     <ClInclude Include="Scene\ViewPlane.h" />
