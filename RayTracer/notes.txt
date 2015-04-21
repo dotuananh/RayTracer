@@ -7,6 +7,6 @@ For the skeleton code, we need to code these 7 group of classes
 2/ RGBColor
 3/ ShadeRec
 4/ GeometryObject, Sphere
-5/ Tracer, SingleSphere
-6/ ViewPlane
-7/ World
+5/ ViewPlane
+6/ World
+7/ Tracer, SingleSphere

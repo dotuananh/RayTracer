@@ -166,14 +166,14 @@ void testRaySphere() {
 //------------------------------------------------------------------------------
 // Entry point of the program
 //------------------------------------------------------------------------------
-int main (int argc, char* argv[]) {
-  // testPointClass();
-  // testVectorClass();
-  // testPointAndVector();
-  // testRayClass();
-  // testNormalClass();
-  // testColorClass();
-  testRaySphere();
+// int main (int argc, char* argv[]) {
+//   // testPointClass();
+//   // testVectorClass();
+//   // testPointAndVector();
+//   // testRayClass();
+//   // testNormalClass();
+//   // testColorClass();
+//   testRaySphere();
 
-  return 0;
-}
+//   return 0;
+// }

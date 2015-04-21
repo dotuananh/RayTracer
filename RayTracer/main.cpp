@@ -49,6 +49,7 @@ typedef struct _rgb {
 // Ref:http://www.cs.mun.ca/~blangdon/opengl/glDrawPixels.html
 //------------------------------------------------------------------------------
 RGB* imgPixels = new RGB[imgWidth * imgHeight];
+int currentPos = 0;
 
 //------------------------------------------------------------------------------
 // Initialize the pixel buffer
@@ -56,9 +57,15 @@ RGB* imgPixels = new RGB[imgWidth * imgHeight];
 void initializeBuffer() {
   // Reset all the pixel colors in our buffer to be maroon.
   for (int i = 0; i < imgWidth * imgHeight; i++) {
-    imgPixels[i].r = 0.5f;
-    imgPixels[i].g = 0.0f;
-    imgPixels[i].b = 0.0f;
+    if (i % 10 < 5) {
+      imgPixels[i].r = 0.5f;
+      imgPixels[i].g = 0.0f;
+      imgPixels[i].b = 0.0f;
+    } else {
+      imgPixels[i].r = 0.0f;
+      imgPixels[i].g = 0.5f;
+      imgPixels[i].b = 0.0f;
+    }
   }
 }
 
@@ -75,18 +82,18 @@ void displayCallback() {
 //------------------------------------------------------------------------------
 // Entry point of the program
 //------------------------------------------------------------------------------
-// int main (int argc, char* argv[]) {
-//   glutInit(&argc, argv);
-//   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-//   glutInitWindowSize(imgWidth, imgHeight);
-//   glutInitWindowPosition(100, 100);
-//   glutCreateWindow("Ray Tracing");
-//   glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-//   glMatrixMode(GL_PROJECTION);
-//   glLoadIdentity();
-//   glOrtho(0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 1.0f);
-//   initializeBuffer();
-//   glutDisplayFunc(displayCallback);
-//   glutMainLoop();
-//   return 0;
-// }
+int main (int argc, char* argv[]) {
+  glutInit(&argc, argv);
+  glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+  glutInitWindowSize(imgWidth, imgHeight);
+  glutInitWindowPosition(100, 100);
+  glutCreateWindow("Ray Tracing");
+  glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+  glMatrixMode(GL_PROJECTION);
+  glLoadIdentity();
+  glOrtho(0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 1.0f);
+  initializeBuffer();
+  glutDisplayFunc(displayCallback);
+  glutMainLoop();
+  return 0;
+}
