@@ -10,8 +10,16 @@
 
 class SingleSphereTracer: public Tracer {
   public:
+    // Default constructor
     SingleSphereTracer();
+
+    // Constructor with a world pointer
+    SingleSphereTracer(World* _worldPtr);
+
+    // Destructor
     virtual ~SingleSphereTracer();
+
+    // Do the ray tracing
     virtual RGBColor traceRay(const Ray& ray) const;
 };
 

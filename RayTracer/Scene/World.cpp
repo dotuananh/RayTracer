@@ -4,7 +4,7 @@
 
 #include "World.h"
 #include "..\Objects\Sphere.h"
-#include "..\Engine\SingleSphere.h"
+#include "..\Engine\SingleSphereTracer.h"
 #include "..\Engine\ShadeRec.h"
 #include "..\MathLib\Vector.h"
 #include "..\MathLib\Point.h"
@@ -13,18 +13,29 @@
 //------------------------------------------------------------------------------
 // Default constructor
 //------------------------------------------------------------------------------
-World::World() {
-  backgroundColor = RGB(0, 0, 0);
-  tracePtr = NULL;
+World::World(int _width, int _height) {
+  backgroundColor = RGBColor(0, 0, 0);
+  tracerPtr = NULL;
+  imgWidth = _width;
+  imgHeight = _height;
+  int imgSize = imgWidth * imgHeight * 3;
+  imgPixels = new float[imgSize];
+
+  // Reset all the pixel colors in our buffer to be maroon.
+  for (int i = 0; i < imgHeight; i++) {
+    for (int j = 0; j < imgWidth; j++) {
+      displayPixel(i, j, RGBColor(0.5, 0, 0));
+    }
+  }
 }
 
 //------------------------------------------------------------------------------
 // Destructor
 //------------------------------------------------------------------------------
 World::~World() {
-  if (tracePtr) {
-    delte tracePtr;
-    tracePtr = NULL;
+  if (tracerPtr) {
+    delete tracerPtr;
+    tracerPtr = NULL;
   }
   deleteObjects();
 }
@@ -43,7 +54,7 @@ void World::addObject(GeometricObject* _objectPtr) {
 // we shoot a ray through it.
 // Based on the traceRay function, we'll display the color of that pixel.
 //------------------------------------------------------------------------------
-void World::renderScene() const {
+void World::renderScene() {
   RGBColor pixelColor;
   Ray ray;
   int hRes = viewPlane.hRes;
@@ -53,17 +64,58 @@ void World::renderScene() const {
 
   ray.d = Vector(0, 0, -1); // The ray is pointing inwards to the objects
   // Go through each pixels
-  for (int row = 0; row <= vRes; row++) {
-    for (int col = 0; col <= hRes; col++) {
+  for (int row = 0; row < vRes; row++) {
+    for (int col = 0; col < hRes; col++) {
       // Calculate the ray
+      // We start from the bottom left corner
       // Read page 66 to understand how we calculate the x,y and z for the ray
       ray.o = Point(
-        pixelSize * (c - hRes/2.0 + 0.5),
-        pixelSize * (r - vRes/2.0 + 0.5),
+        pixelSize * (col - hRes/2.0 + 0.5),
+        pixelSize * (row - vRes/2.0 + 0.5),
         zw);
       // Now trace the ray and get what color it should be for the pixel
-      pixelColor = tracePtr->traceRay(ray);
+      pixelColor = tracerPtr->traceRay(ray);
       displayPixel(row, col, pixelColor);
     }
   }
+}
+
+//------------------------------------------------------------------------------
+// Display the pixel with the color we calculated
+//------------------------------------------------------------------------------
+void World::displayPixel(const int _row, const int _column,
+  const RGBColor& _pixelColor) {
+  int position = (_row * imgWidth + _column) * 3;
+  imgPixels[position + 0] = _pixelColor.r;
+  imgPixels[position + 1] = _pixelColor.g;
+  imgPixels[position + 2] = _pixelColor.b;
+}
+
+//------------------------------------------------------------------------------
+// Build the world with objects we want to trace
+//------------------------------------------------------------------------------
+void World::build() {
+  viewPlane.setHRes(imgWidth);
+  viewPlane.setVRes(imgHeight);
+  viewPlane.setPixelSize(1);
+
+  backgroundColor = RGBColor(1, 1, 1);
+  tracerPtr = new SingleSphereTracer(this);
+
+  sphere.setCenter(0, 0, 0);
+  sphere.setRadius(250);
+}
+
+//------------------------------------------------------------------------------
+// Delete all objects in the world
+//------------------------------------------------------------------------------
+void World::deleteObjects() {
+  int size = objects.size();
+
+  for (int i = 0; i < size; i++) {
+    delete objects[i];
+    objects[i] = NULL;
+  }
+
+  objects.erase(objects.begin(), objects.end());
 }

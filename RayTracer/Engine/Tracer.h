@@ -9,19 +9,27 @@
 #include "..\MathLib\Ray.h"
 #include "..\Scene\RGBColor.h"
 
+class World;
+
 class Tracer {
   public:
     // Constructor
     Tracer();
 
+    // Constructor with a world pointer
+    Tracer(World* _worldPtr);
+
     // Destructor
     virtual ~Tracer();
 
     // Start ray tracing
-    RGBColor traceRay(const Ray& _ray) const;
+    virtual RGBColor traceRay(const Ray& _ray) const;
 
     // Start ray tracing
-    RGBColor traceRay(const Ray ray, const int depth) const;
+    virtual RGBColor traceRay(const Ray ray, const int depth) const;
+
+    // World pointer
+    World* worldPtr;
 };
 
 #endif

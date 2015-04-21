@@ -61,3 +61,4 @@ RayTracer/RayTracer.vcxproj.filters
 *.user
 RayTracer/Debug/RayTracer_manifest.rc
 RayTracer/Debug/RayTracer.log
+*.unsuccessfulbuild

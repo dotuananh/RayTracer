@@ -8,8 +8,8 @@
 // Default constructor
 //------------------------------------------------------------------------------
  ViewPlane::ViewPlane() {
-  hRes = 800;
-  vRes = 600;
+  hRes = 2;
+  vRes = 2;
   pixelSize = 1.0;
   gamma = 1.0;
   inversedGamma = 1.0;
