@@ -6,29 +6,22 @@
 #include "ShadeRec.h"
 
 //------------------------------------------------------------------------------
-// Default constructor
+// Constructor with a world pointer
 //------------------------------------------------------------------------------
-ShadeRec::ShadeRec() {
-  hitObject = false;
-}
+ShadeRec::ShadeRec(World& _world): hitObject(false), world(_world) {
 
-//------------------------------------------------------------------------------
-// Constructor
-//------------------------------------------------------------------------------
-//ShadeRec::ShadeRec(World& _world) {
-  //hitObject = false;
-  //world = _world;
-//}
+}
 
 //------------------------------------------------------------------------------
 // Copy constructor
 //------------------------------------------------------------------------------
-//ShadeRec::ShadeRec(const ShadeRec& _shadeRec) {
-  //hitObject = _shadeRec.hitObject;
-  //hitLocation = _shadeRec.hitLocation;
-  //hitColor = _shadeRec.hitColor;
-  //world = _shadeRec.world;
-//}
+ShadeRec::ShadeRec(const ShadeRec& _shadeRec):
+  hitObject(_shadeRec.hitObject),
+  hitLocation(_shadeRec.hitLocation),
+  hitColor(_shadeRec.hitColor),
+  world(_shadeRec.world) {
+
+}
 
 //------------------------------------------------------------------------------
 // Debug

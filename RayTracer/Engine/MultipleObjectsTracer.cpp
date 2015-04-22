@@ -1,42 +1,41 @@
 /**
- * Description : Implementation of Single Sphere Tracer class
+ * Description : Implementation of the Multiple Objects Tracer class
  */
 
-#include "SingleSphereTracer.h"
-#include "ShadeRec.h"
+#include "MultipleObjectsTracer.h"
 #include "..\Scene\World.h"
 
 //------------------------------------------------------------------------------
 // Default constructor
 //------------------------------------------------------------------------------
-SingleSphereTracer::SingleSphereTracer() : Tracer() {
+MultipleObjectsTracer::MultipleObjectsTracer(): Tracer() {
 
 }
 
 //------------------------------------------------------------------------------
-// Constructor with a world pointer
+// Constructor with the world pointer
 //------------------------------------------------------------------------------
-SingleSphereTracer::SingleSphereTracer(World* _worldPtr) : Tracer(_worldPtr) {
+MultipleObjectsTracer::MultipleObjectsTracer(World* worldPtr):
+  Tracer(worldPtr) {
 
 }
 
 //------------------------------------------------------------------------------
 // Destructor
 //------------------------------------------------------------------------------
-SingleSphereTracer::~SingleSphereTracer() {
+MultipleObjectsTracer::~MultipleObjectsTracer() {
 
 }
 
 //------------------------------------------------------------------------------
-// Start ray tracing
+// Trace the ray
 //------------------------------------------------------------------------------
-RGBColor SingleSphereTracer::traceRay(const Ray& _ray) const {
-  ShadeRec shadeRec(*worldPtr);
-  double t;
+RGBColor MultipleObjectsTracer::traceRay(const Ray& _ray) const {
+  ShadeRec shadeRec(worldPtr->hitBareBoneObjects(_ray));
 
-  //If ray hit the sphere, return red color, otherwise retur black color
-  if (worldPtr->sphere.isHit(_ray, t, shadeRec)) {
-    return RGBColor(1, 0, 0);
+  if (shadeRec.hitObject) {
+    return shadeRec.hitColor;
   }
-  return RGBColor(0, 0, 0);
+
+  return worldPtr->backgroundColor;
 }

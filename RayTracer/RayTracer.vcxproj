@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\MultipleObjectsTracer.cpp" />
     <ClCompile Include="Engine\ShadeRec.cpp" />
     <ClCompile Include="Engine\SingleSphereTracer.cpp" />
     <ClCompile Include="Engine\Tracer.cpp" />
@@ -83,6 +84,7 @@
     <ClCompile Include="MathLib\Ray.cpp" />
     <ClCompile Include="MathLib\Vector.cpp" />
     <ClCompile Include="Objects\GeometricObject.cpp" />
+    <ClCompile Include="Objects\Plane.cpp" />
     <ClCompile Include="Objects\Sphere.cpp" />
     <ClCompile Include="Scene\RGBColor.cpp" />
     <ClCompile Include="Scene\ViewPlane.cpp" />
@@ -91,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Common.h" />
+    <ClInclude Include="Engine\MultipleObjectsTracer.h" />
     <ClInclude Include="Engine\ShadeRec.h" />
     <ClInclude Include="Engine\SingleSphereTracer.h" />
     <ClInclude Include="Engine\Tracer.h" />
@@ -99,6 +102,7 @@
     <ClInclude Include="MathLib\Ray.h" />
     <ClInclude Include="MathLib\Vector.h" />
     <ClInclude Include="Objects\GeometricObject.h" />
+    <ClInclude Include="Objects\Plane.h" />
     <ClInclude Include="Objects\Sphere.h" />
     <ClInclude Include="Scene\RGBColor.h" />
     <ClInclude Include="Scene\ViewPlane.h" />

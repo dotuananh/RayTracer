@@ -28,11 +28,10 @@ class ShadeRec {
    RGBColor hitColor;
 
    // Reference to the world
-   //World& world;
+   World& world;
 
-   ShadeRec();
-   // Constructor
-   //ShadeRec(World& _world);
+   // Constructor with a world pointer
+   ShadeRec(World& _world);
 
    // Copy contructor
    ShadeRec(const ShadeRec& _shadeRec);

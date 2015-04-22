@@ -66,4 +66,15 @@ class Normal {
     double x, y, z;
 };
 
+//------------------------------------------------------------------------------
+// Dot product with a vector
+// Vector . Normal = double
+//------------------------------------------------------------------------------
+inline double operator*(const Vector& _vector, const Normal& _normal) {
+  return (
+    _vector.x * _normal.x +
+    _vector.y * _normal.y +
+    _vector.z + _normal.z);
+}
+
 #endif

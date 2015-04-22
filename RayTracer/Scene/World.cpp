@@ -4,7 +4,9 @@
 
 #include "World.h"
 #include "..\Objects\Sphere.h"
+#include "..\Objects\Plane.h"
 #include "..\Engine\SingleSphereTracer.h"
+#include "..\Engine\MultipleObjectsTracer.h"
 #include "..\Engine\ShadeRec.h"
 #include "..\MathLib\Vector.h"
 #include "..\MathLib\Point.h"
@@ -95,15 +97,39 @@ void World::displayPixel(const int _row, const int _column,
 // Build the world with objects we want to trace
 //------------------------------------------------------------------------------
 void World::build() {
+  // viewPlane.setHRes(imgWidth);
+  // viewPlane.setVRes(imgHeight);
+  // viewPlane.setPixelSize(1);
+
+  // backgroundColor = RGBColor(1, 1, 1);
+  // tracerPtr = new SingleSphereTracer(this);
+
+  // sphere.setCenter(0, 0, 0);
+  // sphere.setRadius(100);
+
   viewPlane.setHRes(imgWidth);
   viewPlane.setVRes(imgHeight);
   viewPlane.setPixelSize(1);
+  tracerPtr = new MultipleObjectsTracer(this);
+  backgroundColor = RGBColor(0, 0, 0);
 
-  backgroundColor = RGBColor(1, 1, 1);
-  tracerPtr = new SingleSphereTracer(this);
+  Sphere* spherePtr = new Sphere;
 
-  sphere.setCenter(0, 0, 0);
-  sphere.setRadius(250);
+  // Sphere #1
+  spherePtr->setCenter(0, -25, 0);
+  spherePtr->setRadius(80);
+  spherePtr->setColor(1, 0, 0);
+  addObject(spherePtr);
+
+  // Sphere #2
+  spherePtr = new Sphere(Point(0, 30, 0), 60);
+  spherePtr->setColor(1, 1, 0);
+  addObject(spherePtr);
+
+  // Plane
+  Plane* planePtr = new Plane(Point(0, 0, 0), Normal(0, 5, 1));
+  planePtr->setColor(0.0f, 0.3f, 0.0f);
+  addObject(planePtr);
 }
 
 //------------------------------------------------------------------------------
@@ -118,4 +144,23 @@ void World::deleteObjects() {
   }
 
   objects.erase(objects.begin(), objects.end());
+}
+
+//------------------------------------------------------------------------------
+// Check if the ray hits at least one of the objects in the world
+//------------------------------------------------------------------------------
+ShadeRec World::hitBareBoneObjects(const Ray& _ray) {
+  ShadeRec shadeRec(*this);
+  double t;
+  double tmin = 1.0E10;
+  int numObjects = objects.size();
+
+  for (int j = 0; j < numObjects; j++) {
+    if (objects[j]->isHit(_ray, t, shadeRec) && (t < tmin)) {
+      shadeRec.hitObject = true;
+      shadeRec.hitColor =objects[j]->getColor();
+      tmin = t;
+    }
+  }
+  return shadeRec;
 }

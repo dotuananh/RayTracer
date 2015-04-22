@@ -154,13 +154,13 @@ void testColorClass() {
 // The ray is supposed to hit the sphere at (0, 0, -2) and (0, 0, -8)
 //------------------------------------------------------------------------------
 void testRaySphere() {
-  Sphere sphere(Point(0, 0, -5), 3.0);
-  Ray ray(Point(0, 0, 1), Vector(0, 0, -1));
-  double t;
-  ShadeRec shadeRec;
-  sphere.isHit(ray, t, shadeRec);
-  cout << "t = " << t << "\n";
-  shadeRec.print();
+  // Sphere sphere(Point(0, 0, -5), 3.0);
+  // Ray ray(Point(0, 0, 1), Vector(0, 0, -1));
+  // double t;
+  // ShadeRec shadeRec;
+  // sphere.isHit(ray, t, shadeRec);
+  // cout << "t = " << t << "\n";
+  // shadeRec.print();
 }
 
 //------------------------------------------------------------------------------
