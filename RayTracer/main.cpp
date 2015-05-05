@@ -20,7 +20,7 @@ using namespace std;
 //#include <GLUT/GLUT.h>
 
 //World world(640, 640);
-World world(200, 200);
+World world(400, 400);
 int imgWidth;
 int imgHeight;
 
